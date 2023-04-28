@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&family=Roboto+Mono:wght@400;600&display=swap');
 
 :root{
-     --cor-primaria: #65647C; /*#3E3E63;*/
-    --cor-secundaria: #e6e6fa; /*#e6e6fa*/
-    --cor-tercearia: #ada57d; /*#ada57d*/
+    /* Dark Mode */
+    --cor-primaria: #454545; /*#3E3E63;*/
+    --cor-secundaria: #FFE6C7; /*#e6e6fa*/
+    --cor-tercearia: #FF6000; /*#ada57d*/
     --cor-hover: #272727;  /*#272727*/
+    --preto: #000000;
+
+    /* Light Mode */ 
+    --cor-primaria-light: #EEE9DA; /*#3E3E63;*/
+    --cor-secundaria-light: #93BFCF; /*#e6e6fa*/
+    --cor-tercearia-light: #6096B4; /*#ada57d*/
+    --cor-hover-light: #272727;  /*#272727*/
 
     --fonte-principal: 'Krona One', sans-serif;
     --fonte-secundaria: 'Roboto Mono', monospace;
@@ -17,15 +25,34 @@
     padding: 0;
 }
 
+body[data-theme="t-light"]{
+    --cor-primaria: #EEE9DA; /*#3E3E63;*/
+    --cor-secundaria: #93BFCF; /*#e6e6fa*/
+    --cor-tercearia: #6096B4; /*#ada57d*/
+    --cor-hover: #d6e6f0;
+}
+
+body[data-theme="t-dark"]{
+    --cor-primaria: #454545; /*#3E3E63;*/
+    --cor-secundaria: #FFE6C7; /*#e6e6fa*/
+    --cor-tercearia: #FF6000; /*#ada57d*/
+    --cor-hover: #272727;  /*#272727*/
+}
+
 body {
     /* height: 100vh; */
     box-sizing: border-box;
     background-color:var(--cor-primaria);
     color: var(--cor-secundaria);
+    transition: 0.5s ease;
 }
 
 .cabecalho{
-    padding: 2% 0% 0% 13%;
+    padding: 1% 0% 0% 13%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
 }
 
 .cabecalho__menu{
@@ -41,8 +68,181 @@ body {
     text-decoration: none;
 }
 
+.wrapper{
+padding-right: 2em;
+}
+
+.switch {
+    position: relative;
+    width: 130px;
+    height: 50px;
+    margin: 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #454545;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    transition: background-image .7s ease-in-out;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    border: 0.5px solid #000000;
+  }
+  
+  .switch:checked {
+    background-color: #6096B4;
+    background-size: cover;
+    transition: background-image 1s ease-in-out;
+  }
+  
+  .switch:after {
+    content: '';
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    transform: translateX(0px);
+    animation: off .7s forwards cubic-bezier(.8, .5, .2, 1.4);
+    box-shadow: inset 5px -5px 4px rgba(53, 53, 53, 0.3);
+  }
+  
+  @keyframes off {
+    0% {
+      transform: translateX(80px);
+      width: 46px;
+    }
+  
+    50% {
+      width: 75px;
+      border-radius: 25px;
+    }
+  
+    100% {
+      transform: translateX(0px);
+      width: 46px;
+    }
+  }
+  
+  .switch:checked:after {
+    animation: on .7s forwards cubic-bezier(.8, .5, .2, 1.4);
+    box-shadow: inset -5px -5px 4px rgba(53, 53, 53, 0.3);
+  }
+  
+  @keyframes on {
+    0% {
+      transform: translateX(0px);
+      width: 46px;
+    }
+  
+    50% {
+      width: 75px;
+      border-radius: 25px;
+    }
+  
+    100% {
+      transform: translateX(80px);
+      width: 46px;
+    }
+  }
+  
+  .switch:checked:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    transform-origin: 53px 10px;
+    background-color: transparent;
+    box-shadow: 5px -1px 0px #fff;
+    filter: blur(0px);
+    animation: sun .7s forwards ease;
+  }
+  
+  @keyframes sun {
+    0% {
+      transform: rotate(170deg);
+      background-color: transparent;
+      box-shadow: 5px -1px 0px #fff;
+      filter: blur(0px);
+    }
+  
+    50% {
+      background-color: transparent;
+      box-shadow: 5px -1px 0px #fff;
+      filter: blur(0px);
+    }
+  
+    90% {
+      background-color: #f5daaa;
+      box-shadow: 0px 0px 10px #f5deb4,
+      0px 0px 20px #f5deb4,
+      0px 0px 30px #f5deb4,
+       inset 0px 0px 2px #efd3a3;
+      filter: blur(1px);
+    }
+  
+    100% {
+      transform: rotate(0deg);
+      background-color: #f5daaa;
+      box-shadow: 0px 0px 10px #f5deb4,
+      0px 0px 20px #f5deb4,
+      0px 0px 30px #f5deb4,
+       inset 0px 0px 2px #efd3a3;
+      filter: blur(1px);
+    }
+  }
+  
+  .switch:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    filter: blur(1px);
+    background-color: #f5daaa;
+    box-shadow: 0px 0px 10px #f5deb4,
+  0px 0px 20px #f5deb4,
+  0px 0px 30px #f5deb4,
+   inset 0px 0px 2px #efd3a3;
+    transform-origin: 53px 10px;
+    animation: moon .7s forwards ease;
+  }
+  
+  @keyframes moon {
+    0% {
+      transform: rotate(0deg);
+      filter: blur(1px);
+    }
+  
+    50% {
+      filter: blur(1px);
+    }
+  
+    90% {
+      background-color: transparent;
+      box-shadow: 5px -1px 0px #fff;
+      filter: blur(0px);
+    }
+  
+    100% {
+      transform: rotate(170deg);
+      background-color: transparent;
+      box-shadow: 5px -1px 0px #fff;
+      filter: blur(0px);
+    }
+  }
+  
+
 .paragrafo1_dest{
-    color: lightsalmon;
+    color: var(--cor-tercearia);
 }
 
 .apresentacao{
@@ -52,6 +252,7 @@ body {
     justify-content: space-between;
     gap: 82px;
 }
+
 
 .apresentacao__conteudo{
     width: 50%;
@@ -92,9 +293,9 @@ body {
     /* background-color: #ADA57D; */
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 13px;
     border: 3px solid var(--cor-tercearia);
-    width: 50%;
+    width: 10em;
     text-align: center;
     border-radius: 8px;
     font-weight: 600;
@@ -110,9 +311,11 @@ body {
 }
 
 .apresentacao__img{
-    width: 65%;
+    width: 55%;
     padding: 24px;
     border-radius: 48px;
+    border-top: 3px solid var(--cor-tercearia);
+    border-bottom: 3px solid var(--cor-tercearia);
 }
 
 .rodape{
@@ -121,8 +324,11 @@ body {
     font-family: var(--fonte-tercearia);
     font-size: 1.5rem;
     font-weight: 400;
-    color: black;
+    color: var(--preto);
     background-color: var(--cor-tercearia);
+}
+.apresentacao__qrcode{
+    width: 43%
 }
 
 @media(max-width: 1200px){
