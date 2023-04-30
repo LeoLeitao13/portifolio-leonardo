@@ -9,11 +9,20 @@
 </head>
 <body>
     <header class="cabecalho">
-        <nav class="cabecalho__menu">
-            <a class="cabecalho__menu__link" href="index.html">Home</a>
-            <a class="cabecalho__menu__link" href="about.html">Sobre mim</a>
-            <a class="cabecalho__menu__link" href="projects.html">Meus Projetos</a>
-            <a class="cabecalho__menu__link" href="contact.html">Contato</a>
+        <button id="btn-menu">
+            <label for="checkbox" class="toggle">
+                <div class="bars" id="bar1"></div>
+                <div class="bars" id="bar2"></div>
+                <div class="bars" id="bar3"></div>
+            </label>
+        </button>
+        <nav class="cabecalho__menu" id="nav">
+            <ul id="menu">
+                <li><a class="cabecalho__menu__link" href="index.html">Home</a></li>
+                <li><a class="cabecalho__menu__link" href="about.html">Sobre mim</a></li>
+                <li><a class="cabecalho__menu__link" href="projects.html">Meus Projetos</a></li>
+                <li><a class="cabecalho__menu__link" href="contact.html">Contato</a></li>
+            </ul>
         </nav>
         <div class="wrapper">
             <input type="checkbox" name="checkbox" class="switch">
@@ -23,7 +32,7 @@
     <main class="apresentacao">
         <section class="apresentacao__conteudo">
             <h1 class="apresentacao__conteudo__titulo">Sobre mim</h1>
-            <p class="apresentacao__conteudo__paragrafo">Me chamo Leonardo, tenho 23 anos, sou de Maringa no Parana, porém nasci em Birigui interior de SP, sempre fui apaixonado em tecnologia, games, musica e gastronomia. Já fiz outro curso e acabei mudando de opção e indo para a área de TI.</p>
+            <p class="apresentacao__conteudo__paragrafo">Me chamo Leonardo, tenho 23 anos, sou de Birigui interior de SP, sempre fui apaixonado em tecnologia, games, musica e gastronomia. Já fiz outro curso e acabei mudando de opção e indo para a área de TI.</p>
             <p class="apresentacao__conteudo__paragrafo"> Vim estudar fora em busca da minha independência e visando meu crescimento humano e profissional. Atualmente estou cursando o primeiro semestre em engenharia de software na Unicesumar. No futuro pretendo ser um desenvolvedor FullStack e irei realizar esse objetivo com muito estudo, esforço, dedicação e apoio da minha família e amigos. Tenho muita dedicação e força de vontade para correr atrás dos meus sonhos e quero provar do que sou capaz!</p>
         </section>
         <img class="apresentacao__img" src="./assets/me.jpg" alt="Foto do Leonardo posando">
@@ -33,5 +42,6 @@
         <p>Desenvolvido por Leonardo Leitão</p>
     </footer>
     <script src="main.js"></script>
+    <script src="botao.js"></script>
 </body>
 </html>

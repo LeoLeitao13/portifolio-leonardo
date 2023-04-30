@@ -9,11 +9,20 @@
 </head>
 <body>
     <header class="cabecalho">
-        <nav class="cabecalho__menu">
-            <a class="cabecalho__menu__link" href="index.html">Home</a>
-            <a class="cabecalho__menu__link" href="about.html">Sobre mim</a>
-            <a class="cabecalho__menu__link" href="projects.html">Meus Projetos</a>
-            <a class="cabecalho__menu__link" href="contact.html">Contato</a>
+        <button id="btn-menu">
+            <label for="checkbox" class="toggle">
+                <div class="bars" id="bar1"></div>
+                <div class="bars" id="bar2"></div>
+                <div class="bars" id="bar3"></div>
+            </label>
+        </button>
+        <nav class="cabecalho__menu" id="nav">
+            <ul id="menu">
+                <li><a class="cabecalho__menu__link" href="index.html">Home</a></li>
+                <li><a class="cabecalho__menu__link" href="about.html">Sobre mim</a></li>
+                <li><a class="cabecalho__menu__link" href="projects.html">Meus Projetos</a></li>
+                <li><a class="cabecalho__menu__link" href="contact.html">Contato</a></li>
+            </ul>
         </nav>
         <div class="wrapper">
             <input type="checkbox" name="checkbox" class="switch">
@@ -38,5 +47,6 @@
         <p>Desenvolvido por Leonardo Leitão</p>
     </footer>
     <script src="main.js"></script>
+    <script src="botao.js"></script>
 </body>
 </html>
